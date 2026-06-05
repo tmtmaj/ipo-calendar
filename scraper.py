@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import re
 
+import certifi
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.ssl_ import create_urllib3_context
@@ -22,6 +23,8 @@ class _LegacySSLAdapter(HTTPAdapter):
 
     def init_poolmanager(self, *args, **kwargs):
         ctx = create_urllib3_context(ciphers="DEFAULT:@SECLEVEL=1")
+        # 커스텀 컨텍스트는 기본 CA를 안 불러오므로 certifi 번들을 명시적으로 로드
+        ctx.load_verify_locations(certifi.where())
         kwargs["ssl_context"] = ctx
         super().init_poolmanager(*args, **kwargs)
 
