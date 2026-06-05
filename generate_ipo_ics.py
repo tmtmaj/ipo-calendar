@@ -61,6 +61,7 @@ def _event(uid: str, dtstart: datetime, dtend: datetime, summary: str, desc: str
         f"DTEND;VALUE=DATE:{dtend.strftime('%Y%m%d')}",
         f"SUMMARY:{_esc(summary)}",
         f"DESCRIPTION:{_esc(desc)}",
+        "COLOR:green",
         "BEGIN:VALARM",
         "TRIGGER:PT9H",          # 종일 일정(자정) 기준 +9h = 당일 오전 9시 알림
         "ACTION:DISPLAY",
@@ -84,6 +85,8 @@ def build_ics(enrich: bool = True) -> str:
         "X-WR-CALDESC:38커뮤니케이션 기반 공모주 청약/상장 일정 (매일 자동 갱신)",
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
         "X-PUBLISHED-TTL:PT12H",
+        "COLOR:green",                      # RFC 7986 캘린더 색상
+        "X-APPLE-CALENDAR-COLOR:#34C759",   # 애플 캘린더 초록
     ]
 
     n_sub, n_list = 0, 0
