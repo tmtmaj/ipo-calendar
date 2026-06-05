@@ -91,6 +91,10 @@ def build_ics(enrich: bool = True) -> str:
         name = row.get("종목명", "").strip()
         if not name:
             continue
+        # 스팩(SPAC) 제외 — 공모가 2,000원 고정이라 따상 거의 없음
+        hope = str(row.get("희망공모가", "")).replace(" ", "").replace(",", "")
+        if "스팩" in name or hope == "2000~2000":
+            continue
         safe_name = name.replace(" ", "_")
 
         detail = fetch_ipo_detail(row.get("_href", "")) if enrich else {}
