@@ -1,0 +1,36 @@
+{
+  "2026-06-05": {
+    "m2": {
+      "value": 22804.5,
+      "yoy": 4.72,
+      "ok": true
+    },
+    "rates": {
+      "fed": 3.63,
+      "t10": 4.49,
+      "t2": 4.08,
+      "spread": 0.41,
+      "ok": true
+    },
+    "market": {
+      "nasdaq": 26350.259765625,
+      "nasdaq_chg": -1.79,
+      "sp500": 7508.3798828125,
+      "sp500_chg": -1.0,
+      "vix": 16.530000686645508,
+      "vix_chg": 7.34,
+      "krw": 1555.280029296875,
+      "krw_chg": 1.64,
+      "gold": 4402.39990234375,
+      "gold_chg": -1.64,
+      "dxy": 99.64900207519531,
+      "dxy_chg": 0.24,
+      "ok": true
+    },
+    "fear_greed": {
+      "value": 12,
+      "classification": "Extreme Fear",
+      "ok": true
+    }
+  }
+}
