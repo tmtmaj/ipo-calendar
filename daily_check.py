@@ -20,15 +20,24 @@ UA = {"User-Agent": "Mozilla/5.0"}
 
 
 def _fred_csv(series: str, days_back: int = 90) -> pd.DataFrame:
-    """FRED CSV를 requests(타임아웃)로 받아 DataFrame으로 반환.
+    """FRED CSV를 requests(타임아웃·재시도)로 받아 DataFrame으로 반환.
 
     cosd(시작일)로 범위를 제한해 일별 장기 시리즈(DGS10 등)도 빠르게 받는다.
+    GitHub 러너에서 간헐적으로 느리거나 막혀서 3회 재시도한다.
     """
+    import time as _t
     cosd = (datetime.now(KST) - timedelta(days=days_back)).strftime("%Y-%m-%d")
     url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series}&cosd={cosd}"
-    res = requests.get(url, headers=UA, timeout=20)
-    res.raise_for_status()
-    return pd.read_csv(io.StringIO(res.text))
+    last_err = None
+    for attempt in range(3):
+        try:
+            res = requests.get(url, headers=UA, timeout=30)
+            res.raise_for_status()
+            return pd.read_csv(io.StringIO(res.text))
+        except Exception as e:
+            last_err = e
+            _t.sleep(2 * (attempt + 1))
+    raise last_err
 
 
 def _fred(series: str) -> float:
@@ -114,9 +123,21 @@ def main() -> None:
             history = {}
 
     today = datetime.now(KST).strftime("%Y-%m-%d")
-    history[today] = collect()
+    fresh = collect()
+
+    # 부분 실패 보존: 새 수집이 실패한 섹션은 기존 성공 데이터를 유지
+    # (하루 2번 실행 + 시드 데이터가 있어 한 번 실패해도 메워짐)
+    prev = history.get(today, {})
+    merged = {}
+    for key in ("m2", "rates", "market", "fear_greed"):
+        new_v = fresh.get(key, {})
+        old_v = prev.get(key, {})
+        merged[key] = new_v if new_v.get("ok") else (old_v if old_v.get("ok") else new_v)
+    history[today] = merged
+
     HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2))
-    print(f"✅ {today} 데일리 체크 저장 (총 {len(history)}일 누적)")
+    ok = {k: merged.get(k, {}).get("ok") for k in ("m2", "rates", "market", "fear_greed")}
+    print(f"✅ {today} 데일리 체크 저장 (총 {len(history)}일 누적) — {ok}")
 
 
 if __name__ == "__main__":
