@@ -368,5 +368,33 @@
       "classification": "Extreme Fear",
       "ok": true
     }
+  },
+  "2026-06-18": {
+    "m2": {
+      "ok": false
+    },
+    "rates": {
+      "ok": false
+    },
+    "market": {
+      "nasdaq": 26021.65625,
+      "nasdaq_chg": -1.34,
+      "sp500": 7420.10009765625,
+      "sp500_chg": -1.21,
+      "vix": 18.440000534057617,
+      "vix_chg": 12.37,
+      "krw": 1522.1800537109375,
+      "krw_chg": 0.74,
+      "gold": 4341.2998046875,
+      "gold_chg": 0.24,
+      "dxy": 100.28800201416016,
+      "dxy_chg": 0.75,
+      "ok": true
+    },
+    "fear_greed": {
+      "value": 15,
+      "classification": "Extreme Fear",
+      "ok": true
+    }
   }
 }
