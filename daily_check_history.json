@@ -993,7 +993,19 @@
       "ok": false
     },
     "market": {
-      "ok": false
+      "nasdaq": 26206.890625,
+      "nasdaq_chg": 1.3,
+      "sp500": 7543.64013671875,
+      "sp500_chg": 0.81,
+      "vix": 15.989999771118164,
+      "vix_chg": 0.95,
+      "krw": 1504.5699462890625,
+      "krw_chg": 0.08,
+      "gold": 4110.5,
+      "gold_chg": -0.49,
+      "dxy": 100.85900115966797,
+      "dxy_chg": -0.08,
+      "ok": true
     },
     "fear_greed": {
       "value": 23,
