@@ -2216,5 +2216,21 @@
       "classification": "Greed",
       "ok": true
     }
+  },
+  "2026-08-23": {
+    "m2": {
+      "ok": false
+    },
+    "rates": {
+      "ok": false
+    },
+    "market": {
+      "ok": false
+    },
+    "fear_greed": {
+      "value": 66,
+      "classification": "Greed",
+      "ok": true
+    }
   }
 }
