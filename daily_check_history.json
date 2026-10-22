@@ -3884,5 +3884,33 @@
       "classification": "Greed",
       "ok": true
     }
+  },
+  "2026-10-22": {
+    "m2": {
+      "ok": false
+    },
+    "rates": {
+      "ok": false
+    },
+    "market": {
+      "nasdaq": 26702.857421875,
+      "nasdaq_chg": 1.05,
+      "sp500": 7757.169921875,
+      "sp500_chg": 0.58,
+      "vix": 16.68000030517578,
+      "vix_chg": -3.64,
+      "krw": 1324.1800537109375,
+      "krw_chg": 0.02,
+      "gold": 4130.0,
+      "gold_chg": -0.3,
+      "dxy": 101.6969985961914,
+      "dxy_chg": -0.03,
+      "ok": true
+    },
+    "fear_greed": {
+      "value": 68,
+      "classification": "Greed",
+      "ok": true
+    }
   }
 }
