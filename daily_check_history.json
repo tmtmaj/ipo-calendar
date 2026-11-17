@@ -4640,5 +4640,21 @@
       "classification": "Extreme Fear",
       "ok": true
     }
+  },
+  "2026-11-18": {
+    "m2": {
+      "ok": false
+    },
+    "rates": {
+      "ok": false
+    },
+    "market": {
+      "ok": false
+    },
+    "fear_greed": {
+      "value": 12,
+      "classification": "Extreme Fear",
+      "ok": true
+    }
   }
 }
