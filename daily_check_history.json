@@ -4821,22 +4821,22 @@
       "ok": false
     },
     "market": {
-      "nasdaq": 23680.275390625,
-      "nasdaq_chg": -1.7,
-      "sp500": 7191.89990234375,
-      "sp500_chg": -0.63,
-      "vix": 27.280000686645508,
-      "vix_chg": 2.48,
-      "krw": 1344.25,
-      "krw_chg": -0.0,
-      "gold": 3570.300048828125,
-      "gold_chg": -2.22,
-      "dxy": 103.85299682617188,
-      "dxy_chg": -0.45,
+      "nasdaq": 23733.5390625,
+      "nasdaq_chg": -1.48,
+      "sp500": 7201.08984375,
+      "sp500_chg": -0.5,
+      "vix": 26.360000610351562,
+      "vix_chg": -0.98,
+      "krw": 1342.300048828125,
+      "krw_chg": 0.1,
+      "gold": 3526.0,
+      "gold_chg": -1.01,
+      "dxy": 104.01100158691406,
+      "dxy_chg": 0.19,
       "ok": true
     },
     "fear_greed": {
-      "value": 11,
+      "value": 13,
       "classification": "Extreme Fear",
       "ok": true
     }
